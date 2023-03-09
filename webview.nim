@@ -97,9 +97,9 @@ const
   WEBVIEW_VERSION_PATCH*          = 0  ## The current library patch version.
   WEBVIEW_VERSION_PRE_RELEASE*    = "" ## SemVer 2.0.0 pre-release labels prefixed with "-".
   WEBVIEW_VERSION_BUILD_METADATA* = "" ## SemVer 2.0.0 build metadata prefixed with "+".
-  WEBVIEW_VERSION_NUMBER*         = $WEBVIEW_VERSION_MAJOR &
+  WEBVIEW_VERSION_NUMBER* = $WEBVIEW_VERSION_MAJOR &
                               '.' & $WEBVIEW_VERSION_MINOR &
-                              '.' & $WEBVIEW_VERSION_PATCH ##\
+                              '.' & $WEBVIEW_VERSION_PATCH ## \
     ## SemVer 2.0.0 version number in MAJOR.MINOR.PATCH format.
 
 type
@@ -160,7 +160,8 @@ const
   WEBVIEW_HINT_MAX*   = 2 ## Width and height are maximum bounds
   WEBVIEW_HINT_FIXED* = 3 ## Window size can not be changed by a user
 
-proc setSize*(w: Webview; width: cint; height: cint; hints: cint) {.cdecl,
+proc setSize*(w: Webview; width: cint; height: cint;
+    hints: cint = WEBVIEW_HINT_NONE) {.cdecl,
     importc: "webview_set_size", webview.}
   ## Updates native window size. See WEBVIEW_HINT constants.
 
@@ -219,12 +220,12 @@ proc webviewReturn*(w: Webview; seq: cstring; status: cint;
 proc webviewVersion*(): ptr WebviewVersionInfo {.cdecl,
     importc: "webview_version", webview.}
   ## Get the library's version information.
- 
+
 # -------------------
 
 type
   WebviewHint* = enum
-    ## Enum version of WEBVIEW_HINT consts. 
+    ## Enum version of WEBVIEW_HINT consts.
 
     HintNone  ## Width and height are default size
     HintMin   ## Width and height are minimum bounds
@@ -247,28 +248,29 @@ proc bindCallback*(w: Webview; name: string;
   proc closure(seq: cstring; req: cstring; arg: pointer) {.cdecl.} =
     var err: cint
     let ctx = cast[CallBackContext](arg)
-    
+
     let res = try:
       ctx.fn($seq, parseJson($req))
     except:
       err = -1
       %* getCurrentExceptionMsg()
-    
+
     webviewReturn(ctx.w, seq, err, cstring $res)
 
   var arg = CallBackContext(w: w, fn: fn)
   GC_ref arg
 
   w.webviewBind(name, closure, cast[pointer](arg))
-  
+
   GC_unref arg
 
-proc setSize*(w: Webview; width: int; height: int; hints: WebviewHint) =
+proc setSize*(w: Webview; width: int; height: int;
+    hints: WebviewHint = HintNone) =
   w.setSize(cint width, cint height, cint ord(hints))
 
 proc `html=`*(w: Webview; html: string) =
   ## Setter alias for `setHtml()`.
-  
+
   runnableExamples:
     let w = create()
 
@@ -289,5 +291,5 @@ proc `title=`*(w: Webview; title: string) =
 proc newWebview*(debug: bool = not defined(release);
     window: pointer = nil): Webview =
   ## Alias of `create()`
-  
+
   create(cint debug, window)
