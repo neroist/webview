@@ -5,17 +5,13 @@ author        = "Jasmine"
 description   = "Webview bindings for Nim"
 license       = "MIT"
 installFiles  = @["webview.nim"]
-installDirs   = @["libs"]
+installDirs   = @["libs", "webview"]
 
 
 # Tasks
 
 task installSDK, "Install WebView2 SDK for Windows":
-  echo "\nInstalling Webview2 SDK..."
-
-  mkDir "libs\\webview2"
-  # exec doesnt work??????
-  discard gorgeEx "curl -sSL https://www.nuget.org/api/v2/package/Microsoft.Web.WebView2 | tar -xf - -C libs/webview2"
+  discard gorgeEx "nim c -r webview/instsdk.nim"
 
 after install:
   when defined(windows):
