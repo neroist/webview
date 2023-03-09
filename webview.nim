@@ -129,7 +129,7 @@ proc create*(debug: cint | bool = not defined(release);
   ## such as when required runtime dependencies are missing or when window creation
   ## fails.
 
-proc newWebview*(debug: int | bool = not defined(release);
+proc newWebview*(debug: bool = not defined(release);
     window: pointer = nil): Webview =
   ## Alias of `create()`
   
