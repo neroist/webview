@@ -23,6 +23,10 @@ const html = """
 proc main =
   let w = create()
 
+  if w == nil:
+    echo "Failed to create webview."
+    quit 1
+
   w.title = "Bind Example"
   w.size = (480, 320)
 
