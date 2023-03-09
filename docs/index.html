@@ -487,9 +487,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Essentially a high-level version of <tt class="docutils literal"><span class="pre"><span class="Identifier">webviewBind</span></span></tt>
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L256"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L261"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L256" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L261" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -540,9 +540,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Evaluates arbitrary JavaScript code. Evaluation happens asynchronously, also the result of the expression is ignored. Use RPC bindings if you want to receive notifications about the results of the evaluation.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L229"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L234"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L229" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L234" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -564,6 +564,10 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 
 Setter alias for <tt class="docutils literal"><span class="pre"><span class="Identifier">setHtml</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>.
+<p><strong class="examples_text">Example:</strong></p>
+<pre class="listing"><span class="Keyword">let</span> <span class="Identifier">w</span> <span class="Operator">=</span> <span class="Identifier">create</span><span class="Punctuation">(</span><span class="Punctuation">)</span>
+
+<span class="Identifier">w</span><span class="Operator">.</span><span class="Identifier">html</span> <span class="Operator">=</span> <span class="StringLit">&quot;&lt;h1&gt;Hello&lt;/h1&gt;&quot;</span></pre>
 &nbsp;&nbsp;<a
 href="https://github.com/neroist/webview/tree/main/webview.nim#L219"
 class="link-seesrc" target="_blank">Source</a>
@@ -578,9 +582,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Injects JavaScript code at the initialization of the new page. Every time the webview will open a the new page - this initialization code will be executed. It is guaranteed that code is executed before window.onload.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L224"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L229"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L224" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L229" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -728,9 +732,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Removes a callback that was previously set by <tt class="docutils literal"><span class="pre"><span class="Identifier">bindCallback</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L243"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L248"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L243" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L248" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -742,9 +746,9 @@ class="link-seesrc" target="_blank">Source</a>
 <p>Same as <tt class="docutils literal"><span class="pre"><span class="Identifier">webviewVersion</span><span class="Punctuation">(</span><span class="Punctuation">)</span><span class="Punctuation">[</span><span class="Punctuation">]</span></span></tt>.</p>
 
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L283"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L288"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L283" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L288" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -757,9 +761,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Binds a callback so that it will appear under the given name as a global JavaScript function. Internally it uses <tt class="docutils literal"><span class="pre"><span class="Identifier">init</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>. Callback receives a request string and a user-provided argument pointer. Request string is a JSON array of all the arguments passed to the JavaScript function.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L234"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L239"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L234" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L239" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -773,9 +777,9 @@ class="link-seesrc" target="_blank">Source</a>
 <p>If status is not zero - result is an error JSON object.</p>
 
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L247"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L252"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L247" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L252" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -786,9 +790,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get the library's version information.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L279"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L284"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L279" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L284" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -802,7 +806,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-03-09 16:41:24 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-03-09 17:19:38 UTC</small>
       </div>
     </div>
   </div>
