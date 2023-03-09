@@ -1,6 +1,6 @@
 import ../webview
 
-let w = create()
+let w = create() # or you can use newWebview()
 
 w.title = "Basic Example"
 w.size = (480, 320)
