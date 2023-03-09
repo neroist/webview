@@ -254,13 +254,15 @@ proc bindCallback*(w: Webview; name: string;
   ## Essentially a high-level version of `webviewBind`
 
   proc closure(seq: cstring; req: cstring; arg: pointer) {.cdecl.} =
+    var err: cint
     
     let res = try:
       fn($seq, $req, arg)
     except:
+      err = 1
       %* {"error": getCurrentExceptionMsg()}
     
-    webviewReturn(w, seq, 0, cstring $res)
+    webviewReturn(w, seq, err, cstring $res)
 
   w.webviewBind(name, closure, arg)
 
