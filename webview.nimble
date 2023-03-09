@@ -11,9 +11,8 @@ installDirs   = @["libs"]
 # Tasks
 
 task installSDK, "Install WebView2 SDK for Windows":
-  mkDir "libs\\webview2"
   # exec doesnt work??????
-  discard gorgeEx "curl -sSL https://www.nuget.org/api/v2/package/Microsoft.Web.WebView2 | tar -xf - -C libs\\webview2"
+  discard gorgeEx "nim c -r instsdk.nim"
 
 after install:
   when defined(windows):
