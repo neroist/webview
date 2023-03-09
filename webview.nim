@@ -218,6 +218,11 @@ proc setHtml*(w: Webview; html: cstring) {.cdecl,
 
 proc `html=`*(w: Webview; html: string) =
   ## Setter alias for `setHtml()`.
+  
+  runnableExamples:
+    let w = create()
+
+    w.html = "<h1>Hello</h1>"
 
   w.setHtml(html)
 
