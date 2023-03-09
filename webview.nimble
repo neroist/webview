@@ -4,7 +4,7 @@ version       = "0.1.0"
 author        = "Jasmine"
 description   = "Webview bindings for Nim"
 license       = "MIT"
-installFiles  = @["webview.nim"]
+installFiles  = @["webview.nim", "instsdk.nim"]
 installDirs   = @["libs"]
 
 
