@@ -107,9 +107,9 @@ type
 
   WebviewVersionInfo* {.bycopy.} = object
     version*: WebviewVersion
-    versionNumber*: cstring
-    preRelease*: cstring
-    buildMetadata*: cstring
+    versionNumber*: array[32, char]
+    preRelease*: array[48, char]
+    buildMetadata*: array[48, char]
 
   Webview* = pointer
 
