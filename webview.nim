@@ -129,11 +129,11 @@ proc create*(debug: cint | bool = not defined(release);
   ## such as when required runtime dependencies are missing or when window creation
   ## fails.
 
-proc newWebview*(debug: cint | bool = not defined(release);
+proc newWebview*(debug: int | bool = not defined(release);
     window: pointer = nil): Webview =
   ## Alias of `create()`
   
-  create(debug, window)
+  create(debug, cint window)
 
 proc destroy*(w: Webview) {.cdecl, importc: "webview_destroy", webview.}
   ## Destroys a webview and closes the native window.
