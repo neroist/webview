@@ -106,10 +106,10 @@ type
     major, minor, patch: cuint
 
   WebviewVersionInfo* {.bycopy.} = object
-    version: WebviewVersion
-    versionNumber: array[32, char]
-    preRelease: array[48, char]
-    buildMetadata: array[48, char]
+    version*: WebviewVersion
+    versionNumber*: cstring
+    preRelease*: cstring
+    buildMetadata*: cstring
 
   Webview* = pointer
 
@@ -280,7 +280,7 @@ proc webviewVersion*(): ptr WebviewVersionInfo {.cdecl,
     importc: "webview_version", webview.}
   ## Get the library's version information.
 
-proc getVersion*(): WebviewVersionInfo = webviewVersion()[]
+proc version*(): WebviewVersionInfo = webviewVersion()[]
   ## Dereferenced of `webviewVersion()`.
   ##
   ## Same as `webviewVersion()[]`.
