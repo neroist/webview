@@ -12,7 +12,7 @@ installDirs   = @["libs"]
 
 task installSDK, "Install WebView2 SDK for Windows":
   # exec doesnt work??????
-  exec "nim c -r instsdk.nim"
+  exec"curl -sSL https://www.nuget.org/api/v2/package/Microsoft.Web.WebView2 | tar -xf - -C libs/webview2"
 
 after install:
   when defined(windows):
