@@ -116,7 +116,7 @@ type
 type
   CallBackContext = ref object
     w: Webview
-    fn: proc (seq: string; req: string): JsonNode
+    fn: proc (seq: string; req: JsonNode): JsonNode
 
 proc create*(debug: cint | bool = not defined(release);
     window: pointer = nil): Webview {.cdecl, importc: "webview_create", webview.}
@@ -254,7 +254,7 @@ proc webviewReturn*(w: Webview; seq: cstring; status: cint;
   ## If status is not zero - result is an error JSON object.
 
 proc bindCallback*(w: Webview; name: string;
-                 fn: proc (seq: string; req: string): JsonNode) =
+                 fn: proc (seq: string; req: JsonNode): JsonNode) =
   ## Essentially a high-level version of `webviewBind`
 
   proc closure(seq: cstring; req: cstring; arg: pointer) {.cdecl.} =
@@ -262,7 +262,7 @@ proc bindCallback*(w: Webview; name: string;
     let ctx = cast[CallBackContext](arg)
     
     let res = try:
-      ctx.fn($seq, $req)
+      ctx.fn($seq, parseJson($req))
     except:
       err = 1
       %* {"error": getCurrentExceptionMsg()}
