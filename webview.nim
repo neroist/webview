@@ -5,6 +5,9 @@ import os
 const
   libs = currentSourcePath().parentDir() / "libs"
 
+  webview2Include = libs / "webview2"/"build"/"native"/"include"
+  webview = libs / "webview"
+
 when defined(useWebviewDll):
   const webviewDll {.strdefine.} = when defined(windows):
       "webview.dll"
@@ -39,8 +42,8 @@ else:
     {.link: "user32.lib".}
     {.link: "version.lib".}
 
-    {.passC: "/I " & libs / "webview2"/"build"/"native"/"include".}
-    {.passC: "/I " & libs / "webview".}
+    {.passC: "/I " & webview2Include.}
+    {.passC: "/I " & webview.}
 
   elif defined(windows) or defined(gcc):
     when defined(cpp):
@@ -49,8 +52,8 @@ else:
       when not defined(clang):
         {.passC: "-std=c99".}
 
-    {.passC: "-I" & libs / "webview2"/"build"/"native"/"include".}
-    {.passC: "-I" & libs / "webview".}
+    {.passC: "-I" & webview2Include.}
+    {.passC: "-I" & webview.}
 
     when defined(clang) and defined(cpp):
       {.passL: "-mwindows".}
@@ -65,7 +68,7 @@ else:
     {.passL: "-lversion".}
     {.passL: "-static".}
   else:
-    {.passC: "-Ilibs/webview".}
+    {.passC: "-I" & webview.}
 
     when defined(cpp):
       {.passC: "-std=c++11".}
@@ -83,7 +86,7 @@ else:
         {.passC: staticExec"pkg-config --cflags gtk+-3.0 webkit2gtk-4.0".}
         {.passL: staticExec"pkg-config --libs gtk+-3.0 webkit2gtk-4.0".}
 
-  {.compile: "libs/webview/webview.cc".}
+  {.compile: libs / "webview" / "webview.cc".}
   {.pragma: webview.}
 
 const

@@ -1,3 +1,3 @@
 import std/unittest
 
-import webview
+import "webview.nim"
