@@ -133,7 +133,7 @@ proc newWebview*(debug: bool = not defined(release);
     window: pointer = nil): Webview =
   ## Alias of `create()`
   
-  create(debug, cint window)
+  create(cint debug, window)
 
 proc destroy*(w: Webview) {.cdecl, importc: "webview_destroy", webview.}
   ## Destroys a webview and closes the native window.
