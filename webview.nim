@@ -280,7 +280,7 @@ proc webviewVersion*(): ptr WebviewVersionInfo {.cdecl,
     importc: "webview_version", webview.}
   ## Get the library's version information.
 
-proc version*(): WebviewVersionInfo = webviewVersion()[]
+proc getVersion*(): WebviewVersionInfo = webviewVersion()[]
   ## Dereferenced of `webviewVersion()`.
   ##
   ## Same as `webviewVersion()[]`.
