@@ -1,4 +1,4 @@
-import ../webview
+import webview
 
 let w = create() # or you can use newWebview()
 

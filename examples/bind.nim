@@ -1,6 +1,6 @@
 import std/json
 
-import ../webview
+import webview
 
 var count: int
 
