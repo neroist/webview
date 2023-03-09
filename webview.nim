@@ -9,6 +9,8 @@ const
   webview2Include = libs / "webview2"/"build"/"native"/"include"
   webview = libs / "webview"
 
+  isDebug = not (defined(release) or defined(danger))
+
 when defined(useWebviewDll):
   const webviewDll {.strdefine.} = when defined(windows):
       "webview.dll"
@@ -114,7 +116,7 @@ type
 
   Webview* = pointer
 
-proc create*(debug: cint | bool = not defined(release);
+proc create*(debug: cint | bool = isDebug;
     window: pointer = nil): Webview {.cdecl, importc: "webview_create", webview.}
   ## Creates a new webview instance. If debug is non-zero - developer tools will
   ## be enabled (if the platform supports them). Window parameter can be a
@@ -288,8 +290,7 @@ proc `title=`*(w: Webview; title: string) =
 
   w.setTitle(title)
 
-proc newWebview*(debug: bool = not defined(release);
-    window: pointer = nil): Webview =
+proc newWebview*(debug: bool = isDebug; window: pointer = nil): Webview =
   ## Alias of `create()`
 
   create(cint debug, window)
