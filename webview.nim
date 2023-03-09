@@ -269,8 +269,8 @@ proc bindCallback*(w: Webview; name: string;
     let res = try:
       ctx.fn($seq, parseJson($req))
     except:
-      err = 1
-      %* {"error": getCurrentExceptionMsg()}
+      err = -1
+      %* getCurrentExceptionMsg()
     
     webviewReturn(ctx.w, seq, err, cstring $res)
 
