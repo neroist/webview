@@ -1,6 +1,7 @@
 ## Wrapper for `Webview <https://github.com/webview/webview>`_.
 
-import os
+import std/json
+import std/os
 
 const
   libs = currentSourcePath().parentDir() / "libs"
@@ -228,13 +229,6 @@ proc webviewBind*(w: Webview; name: cstring;
   ## string is a JSON array of all the arguments passed to the JavaScript
   ## function.
 
-proc bindCallback*(w: Webview; name: cstring;
-                 fn: proc (seq: cstring; req: cstring; arg: pointer) {.cdecl.};
-                 arg: pointer = nil) =
-  ## Alias of `webviewBind`
-
-  webviewBind(w, name, fn, arg)
-
 proc unbind*(w: Webview; name: cstring) {.cdecl,
                                 importc: "webview_unbind", webview.}
   ## Removes a callback that was previously set by `bindCallback()`.
@@ -247,6 +241,22 @@ proc webviewReturn*(w: Webview; seq: cstring; status: cint;
   ## If status is zero - result is expected to be a valid JSON result value.
   ##
   ## If status is not zero - result is an error JSON object.
+
+proc bindCallback*(w: Webview; name: string;
+                 fn: proc (seq: string; req: string; arg: pointer): JsonNode;
+                 arg: pointer = nil) =
+  ## Essentially a high-level version of `webviewBind`
+
+  proc closure(seq: cstring; req: cstring; arg: pointer) {.cdecl.} =
+    
+    let res = try:
+      fn($seq, $req, arg)
+    except:
+      %* {"error": getCurrentExceptionMsg()}
+    
+    webviewReturn(w, seq, 0, cstring $res)
+
+  w.webviewBind(name, closure, arg)
 
 proc webviewVersion*(): ptr WebviewVersionInfo {.cdecl,
     importc: "webview_version", webview.}
