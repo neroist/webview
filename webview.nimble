@@ -12,7 +12,7 @@ installDirs   = @["libs"]
 
 task installSDK, "Install WebView2 SDK for Windows":
   # exec doesnt work??????
-  discard gorgeEx "nim c -r instsdk.nim"
+  exec "nim c -r instsdk.nim"
 
 after install:
   when defined(windows):
