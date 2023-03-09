@@ -11,10 +11,6 @@ installDirs   = @["libs"]
 # Tasks
 
 task installSDK, "Install WebView2 SDK for Windows":
-  echo "\nInstalling Webview2 SDK..."
-
-  mkDir "libs\\webview2"
-  # exec doesnt work??????
   discard gorgeEx "nim c -r instsdk.nim"
 
 after install:
