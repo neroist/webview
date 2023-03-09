@@ -103,7 +103,7 @@ const
 
 type
   WebviewVersion* {.bycopy.} = object
-    major, minor, patch: cuint
+    major*, minor*, patch*: cuint
 
   WebviewVersionInfo* {.bycopy.} = object
     version*: WebviewVersion
