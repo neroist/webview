@@ -113,6 +113,11 @@ type
 
   Webview* = pointer
 
+type
+  CallBackContext = ref object
+    w: Webview
+    fn: proc (seq: string; req: string): JsonNode
+
 proc create*(debug: cint | bool = not defined(release);
     window: pointer = nil): Webview {.cdecl, importc: "webview_create", webview.}
   ## Creates a new webview instance. If debug is non-zero - developer tools will
@@ -249,22 +254,29 @@ proc webviewReturn*(w: Webview; seq: cstring; status: cint;
   ## If status is not zero - result is an error JSON object.
 
 proc bindCallback*(w: Webview; name: string;
-                 fn: proc (seq: string; req: string; arg: pointer): JsonNode;
-                 arg: pointer = nil) =
+                 fn: proc (seq: string; req: string): JsonNode) =
   ## Essentially a high-level version of `webviewBind`
 
   proc closure(seq: cstring; req: cstring; arg: pointer) {.cdecl.} =
     var err: cint
+    let ctx = cast[CallBackContext](arg)
     
     let res = try:
-      fn($seq, $req, arg)
+      ctx.fn($seq, $req)
     except:
       err = 1
       %* {"error": getCurrentExceptionMsg()}
     
-    webviewReturn(w, seq, err, cstring $res)
+    webviewReturn(ctx.w, seq, err, cstring $res)
 
-  w.webviewBind(name, closure, arg)
+    # not sure abt this...
+    if err != 0:
+      GC_unref ctx
+
+  var arg = CallBackContext(w: w, fn: fn)
+  Gc_ref arg
+
+  w.webviewBind(name, closure, cast[pointer](arg))
 
 proc webviewVersion*(): ptr WebviewVersionInfo {.cdecl,
     importc: "webview_version", webview.}
