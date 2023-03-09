@@ -269,14 +269,12 @@ proc bindCallback*(w: Webview; name: string;
     
     webviewReturn(ctx.w, seq, err, cstring $res)
 
-    # not sure abt this...
-    if err != 0:
-      GC_unref ctx
-
   var arg = CallBackContext(w: w, fn: fn)
-  Gc_ref arg
+  GC_ref arg
 
   w.webviewBind(name, closure, cast[pointer](arg))
+  
+  GC_unref arg
 
 proc webviewVersion*(): ptr WebviewVersionInfo {.cdecl,
     importc: "webview_version", webview.}
