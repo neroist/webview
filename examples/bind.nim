@@ -2,8 +2,6 @@ import std/json
 
 import webview
 
-var count: int
-
 const html = """
 <button id="increment">Tap me</button>
 <div>You tapped <span id="count">0</span> time(s).</div>
@@ -22,6 +20,8 @@ const html = """
 
 proc main =
   let w = create()
+
+  var count: int
 
   if w == nil:
     echo "Failed to create webview."
