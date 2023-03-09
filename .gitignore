@@ -1,0 +1,4 @@
+libs/webview2
+*.exe
+*.dll
+*.lib
