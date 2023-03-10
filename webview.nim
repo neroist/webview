@@ -32,6 +32,8 @@ elif defined(useWebviewStaticLib) or defined(useWebviewStaticLibrary):
 
 else:
   when defined(vcc):
+    {.passC: "-DWEBVIEW_EDGE".}
+
     {.passC: "/std:c++17".}
     {.passC: "/EHsc".}
 
@@ -46,6 +48,8 @@ else:
     {.passC: "/I " & webview.}
 
   elif defined(windows):
+    {.passC: "-DWEBVIEW_EDGE".}
+
     when defined(cpp):
       {.passC: "-std=c++17".}
 
@@ -67,10 +71,14 @@ else:
     when defined(cpp):
       {.passC: "-std=c++11".}
 
-    when defined(macos):
+    when defined(macos) or defined(macosx):
+      {.passC: "-DWEBVIEW_COCOA".}
+
       {.passL: "-framework WebKit".}
 
-    when defined(linux) or defined(openbsd) or defined(freebsd) or defined(netbsd):
+    when defined(linux) or defined(bsd):
+      {.passC: "-DWEBVIEW_GTK".}
+
       {.passL: staticExec"pkg-config --libs gtk+-3.0 webkit2gtk-4.0".}
       {.passC: staticExec"pkg-config --cflags gtk+-3.0 webkit2gtk-4.0".}
 
