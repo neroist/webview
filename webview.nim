@@ -99,7 +99,7 @@ const
   WEBVIEW_VERSION_PATCH*          = 0  ## The current library patch version.
   WEBVIEW_VERSION_PRE_RELEASE*    = "" ## SemVer 2.0.0 pre-release labels prefixed with "-".
   WEBVIEW_VERSION_BUILD_METADATA* = "" ## SemVer 2.0.0 build metadata prefixed with "+".
-  WEBVIEW_VERSION_NUMBER* = $WEBVIEW_VERSION_MAJOR &
+  WEBVIEW_VERSION_NUMBER*         = $WEBVIEW_VERSION_MAJOR &
                               '.' & $WEBVIEW_VERSION_MINOR &
                               '.' & $WEBVIEW_VERSION_PATCH ## \
     ## SemVer 2.0.0 version number in MAJOR.MINOR.PATCH format.
