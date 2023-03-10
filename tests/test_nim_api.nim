@@ -11,7 +11,7 @@ test "create a window, run app and terminate it.":
     check arg == nil
     w.terminate()
 
-  let w = newWebview(false)
+  let w = newWebview()
   
   w.setSize(280, 320, WEBVIEW_HINT_NONE)
   w.setTitle("Test")

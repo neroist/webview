@@ -6,7 +6,7 @@ import ../webview
 test "test synchronous binding and unbinding. (low-level)":
   var number: int
 
-  let w = newWebview(false)
+  let w = newWebview()
 
   proc test(seq: cstring, req: cstring, arg: pointer) {.cdecl.} =
     proc increment(s: cstring, _: cstring, aarg: pointer) {.cdecl.} = 
@@ -60,7 +60,7 @@ test "test synchronous binding and unbinding. (low-level)":
 test "test synchronous binding and unbinding. (high-level)":
   var number: int
 
-  let w = newWebview(false)
+  let w = newWebview()
 
   proc test(seq: string, req: JsonNode): string =
     proc increment(s: string, _: JsonNode): string = 

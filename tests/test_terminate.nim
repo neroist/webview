@@ -2,9 +2,10 @@ import std/unittest
 
 import "webview.nim"
 
-let w = create()
 
 test "start app loop and terminate it.":
+  let w = create()
+
   w.dispatch() do (web: Webview; _: pointer) {.cdecl.}:
     web.terminate()
 
