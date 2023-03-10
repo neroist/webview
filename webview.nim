@@ -265,7 +265,7 @@ proc `html=`*(w: Webview; html: string) =
 
     w.html = "<h1>Hello</h1>"
 
-  w.setHtml(html)
+  w.setHtml(cstring html)
 
 proc `size=`*(w: Webview; size: tuple[width: int; height: int]) =
   ## Setter alias for `setSize()`. `hints` default to `WEBVIEW_HINT_NONE`.
