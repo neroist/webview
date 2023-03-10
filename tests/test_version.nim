@@ -1,7 +1,7 @@
 import std/unittest
 import std/strutils
 
-import "webview.nim"
+import webview
 
 test "version()":
   let ver = version()
