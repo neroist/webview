@@ -15,17 +15,17 @@ when defined(useWebviewDll):
   const webviewDll* = when defined(windows):
       "webview.dll"
     elif defined(macos):
-      "webview.dynlib"
+      "libwebview.dynlib"
     else:
-      "webview.so"
+      "libwebview.so"
 
   {.pragma: webview, dynlib: webviewDll.}
 
 elif defined(useWebviewStaticLib) or defined(useWebviewStaticLibrary):
-  const webviewStaticLibrary*  = when defined(windows):
+  const webviewStaticLibrary* = when defined(windows):
       "webview.lib"
     else:
-      "webview.a"
+      "libwebview.a"
 
   {.passL: webviewStaticLibrary.}
   {.pragma: webview.}
