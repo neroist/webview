@@ -10,5 +10,5 @@ test "version()":
   check ver.version.minor == WEBVIEW_VERSION_MINOR
   check ver.version.patch == WEBVIEW_VERSION_PATCH
   check ver.versionNumber.join().replace("\0", "") == WEBVIEW_VERSION_NUMBER
-  check ver.versionNumber.join().replace("\0", "") == WEBVIEW_VERSION_NUMBER
-  check ver.versionNumber.join().replace("\0", "") == WEBVIEW_VERSION_NUMBER
+  check ver.preRelease.join().replace("\0", "") == WEBVIEW_VERSION_PRE_RELEASE
+  check ver.buildMetadata.join().replace("\0", "") == WEBVIEW_VERSION_BUILD_METADATA
