@@ -31,9 +31,6 @@ elif defined(useWebviewStaticLib) or defined(useWebviewStaticLibrary):
   {.pragma: webview.}
 
 else:
-  when defined(forceWebviewGtk):
-    {.passC: "-DWEBVIEW_GTK".}
-
   when defined(vcc):
     {.passC: "/std:c++17".}
     {.passC: "/EHsc".}
