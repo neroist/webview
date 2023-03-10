@@ -27,7 +27,9 @@ Documentation is available at <https://neroist.github.io/webview/>
 
 Examples can be found at [`examples/`](examples/). Currently, it contains two
 examples, `basic.nim`, a basic example of Webview, and `bind.nim`, an example of
-calling Nim from Javascript with Webview.
+calling Nim from Javascript with Webview. In addition, it also has an example
+application in the structure described
+[here](https://github.com/webview/webview#app-distribution).
 
 ## Installation
 
