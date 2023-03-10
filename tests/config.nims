@@ -1,5 +1,6 @@
 switch("path", "$projectDir")
 
---backend:cpp
+when defined(windows):
+  --backend:cpp
 
 --d:release
