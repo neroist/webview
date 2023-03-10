@@ -153,13 +153,13 @@ window.addEventListener('DOMContentLoaded', main);
       <ul class="simple nested-toc-section">bindCallback
       <li><a class="reference" href="#bindCallback%2CWebview%2Cstring%2Cproc%28string%2CJsonNode%29"
     title="bindCallback(w: Webview; name: string;
-             fn: proc (seq: string; req: JsonNode): JsonNode)">bindCallback(w: Webview; name: string;
-             fn: proc (seq: string; req: JsonNode): JsonNode)</a></li>
+             fn: proc (seq: string; req: JsonNode): string)">bindCallback(w: Webview; name: string;
+             fn: proc (seq: string; req: JsonNode): string)</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">create
       <li><a class="reference" href="#create%2Cpointer"
-    title="create(debug: cint | bool = not false; window: pointer = nil): Webview">create(debug: cint | bool = not false; window: pointer = nil): Webview</a></li>
+    title="create(debug: cint | bool = isDebug; window: pointer = nil): Webview">create(debug: cint | bool = isDebug; window: pointer = nil): Webview</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">destroy
@@ -201,7 +201,7 @@ window.addEventListener('DOMContentLoaded', main);
   </ul>
   <ul class="simple nested-toc-section">newWebview
       <li><a class="reference" href="#newWebview%2Cbool%2Cpointer"
-    title="newWebview(debug: bool = not false; window: pointer = nil): Webview">newWebview(debug: bool = not false; window: pointer = nil): Webview</a></li>
+    title="newWebview(debug: bool = isDebug; window: pointer = nil): Webview">newWebview(debug: bool = isDebug; window: pointer = nil): Webview</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">run
@@ -216,9 +216,9 @@ window.addEventListener('DOMContentLoaded', main);
   </ul>
   <ul class="simple nested-toc-section">setSize
       <li><a class="reference" href="#setSize%2CWebview%2Ccint%2Ccint%2Ccint"
-    title="setSize(w: Webview; width: cint; height: cint; hints: cint)">setSize(w: Webview; width: cint; height: cint; hints: cint)</a></li>
+    title="setSize(w: Webview; width: cint; height: cint; hints: cint = WEBVIEW_HINT_NONE)">setSize(w: Webview; width: cint; height: cint; hints: cint = WEBVIEW_HINT_NONE)</a></li>
   <li><a class="reference" href="#setSize%2CWebview%2Cint%2Cint%2CWebviewHint"
-    title="setSize(w: Webview; width: int; height: int; hints: WebviewHint)">setSize(w: Webview; width: int; height: int; hints: WebviewHint)</a></li>
+    title="setSize(w: Webview; width: int; height: int; hints: WebviewHint = HintNone)">setSize(w: Webview; width: int; height: int; hints: WebviewHint = HintNone)</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">setTitle
@@ -295,9 +295,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L115"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L117"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L115" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L117" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -309,11 +309,11 @@ class="link-seesrc" target="_blank">Source</a>
   <span class="Identifier">HintFixed</span>                  <span class="Comment">## Window size can not be changed by a user</span></pre></dt>
 <dd>
 
-Enum version of WEBVIEW_HINT consts. 
+Enum version of WEBVIEW_HINT consts.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L226"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L229"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L226" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L229" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -325,9 +325,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L106"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L108"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L106" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L108" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -342,9 +342,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L109"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L111"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L109" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L111" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -359,9 +359,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Window size can not be changed by a user
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L161"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L163"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L161" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L163" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -371,9 +371,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Width and height are maximum bounds
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L160"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L162"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L160" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L162" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -383,9 +383,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Width and height are minimum bounds
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L159"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L161"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L159" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L161" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -395,9 +395,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Width and height are default size
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L158"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L160"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L158" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L160" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -407,9 +407,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 SemVer 2.0.0 build metadata prefixed with &quot;+&quot;.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L99"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L101"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L99" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L101" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -419,9 +419,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 The current library major version.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L95"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L97"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L95" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L97" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -431,9 +431,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 The current library minor version.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L96"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L98"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L96" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L98" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -442,11 +442,11 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 
 
- SemVer 2.0.0 version number in MAJOR.MINOR.PATCH format.
+SemVer 2.0.0 version number in MAJOR.MINOR.PATCH format.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L100"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L102"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L100" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L102" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -456,9 +456,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 The current library patch version.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L97"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L99"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L97" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L99" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -468,9 +468,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 SemVer 2.0.0 pre-release labels prefixed with &quot;-&quot;.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L98"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L100"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L98" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L100" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -481,28 +481,28 @@ class="link-seesrc" target="_blank">Source</a>
 <dl class="item">
 <div id="bindCallback,Webview,string,proc(string,JsonNode)">
 <dt><pre><span class="Keyword">proc</span> <a href="#bindCallback%2CWebview%2Cstring%2Cproc%28string%2CJsonNode%29"><span class="Identifier">bindCallback</span></a><span class="Other">(</span><span class="Identifier">w</span><span class="Other">:</span> <a href="webview.html#Webview"><span class="Identifier">Webview</span></a><span class="Other">;</span> <span class="Identifier">name</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span>
-                  <span class="Identifier">fn</span><span class="Other">:</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">seq</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">req</span><span class="Other">:</span> <span class="Identifier">JsonNode</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">JsonNode</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+                  <span class="Identifier">fn</span><span class="Other">:</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">seq</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">req</span><span class="Other">:</span> <span class="Identifier">JsonNode</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
     <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">,</span> <span class="Identifier">ReadIOEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 Essentially a high-level version of <tt class="docutils literal"><span class="pre"><span class="Identifier">webviewBind</span></span></tt>
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L243"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L246"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L243" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L246" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
 <div id="create,pointer">
-<dt><pre><span class="Keyword">proc</span> <a href="#create%2Cpointer"><span class="Identifier">create</span></a><span class="Other">(</span><span class="Identifier">debug</span><span class="Other">:</span> <span class="Identifier">cint</span> <span class="Operator">|</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Keyword">not</span> <span class="DecNumber">false</span><span class="Other">;</span> <span class="Identifier">window</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">)</span><span class="Other">:</span> <a href="webview.html#Webview"><span class="Identifier">Webview</span></a> {.
+<dt><pre><span class="Keyword">proc</span> <a href="#create%2Cpointer"><span class="Identifier">create</span></a><span class="Other">(</span><span class="Identifier">debug</span><span class="Other">:</span> <span class="Identifier">cint</span> <span class="Operator">|</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">isDebug</span><span class="Other">;</span> <span class="Identifier">window</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">)</span><span class="Other">:</span> <a href="webview.html#Webview"><span class="Identifier">Webview</span></a> {.
     <span class="Identifier">cdecl</span><span class="Other">,</span> <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;webview_create&quot;</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 Creates a new webview instance. If debug is non-zero - developer tools will be enabled (if the platform supports them). Window parameter can be a pointer to the native window handle. If it's non-null - then child WebView is embedded into the given parent window. Otherwise a new window is created. Depending on the platform, a <tt class="docutils literal"><span class="pre"><span class="Identifier">GtkWindow</span></span></tt>, <tt class="docutils literal"><span class="pre"><span class="Identifier">NSWindow</span></span></tt> or <tt class="docutils literal"><span class="pre"><span class="Identifier">HWND</span></span></tt> pointer can be passed here. Returns null on failure. Creation can fail for various reasons such as when required runtime dependencies are missing or when window creation fails.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L117"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L119"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L117" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L119" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -513,9 +513,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Destroys a webview and closes the native window.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L128"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L130"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L128" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L130" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -527,9 +527,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Posts a function to be executed on the main thread. You normally do not need to call this function, unless you want to tweak the native window.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L139"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L141"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L139" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L141" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -540,9 +540,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Evaluates arbitrary JavaScript code. Evaluation happens asynchronously, also the result of the expression is ignored. Use RPC bindings if you want to receive notifications about the results of the evaluation.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L192"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L195"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L192" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L195" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -553,9 +553,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Returns a native window handle pointer. When using GTK backend the pointer is <tt class="docutils literal"><span class="pre"><span class="Identifier">GtkWindow</span></span></tt> pointer, when using Cocoa backend the pointer is <tt class="docutils literal"><span class="pre"><span class="Identifier">NSWindow</span></span></tt> pointer, when using Win32 backend the pointer is <tt class="docutils literal"><span class="pre"><span class="Identifier">HWND</span></span></tt> pointer.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L145"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L147"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L145" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L147" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -569,9 +569,9 @@ Setter alias for <tt class="docutils literal"><span class="pre"><span class="Ide
 
 <span class="Identifier">w</span><span class="Operator">.</span><span class="Identifier">html</span> <span class="Operator">=</span> <span class="StringLit">&quot;&lt;h1&gt;Hello&lt;/h1&gt;&quot;</span></pre>
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L269"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L273"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L269" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L273" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -582,9 +582,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Injects JavaScript code at the initialization of the new page. Every time the webview will open a the new page - this initialization code will be executed. It is guaranteed that code is executed before window.onload.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L187"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L190"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L187" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L190" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -601,22 +601,22 @@ Navigates webview to the given URL. URL may be a properly encoded data URI.
 <span class="Identifier">w</span><span class="Operator">.</span><span class="Identifier">navigate</span><span class="Punctuation">(</span><span class="StringLit">&quot;data:text/html,%3Ch1%3EHello%3C%2Fh1%3E&quot;</span><span class="Punctuation">)</span>
 <span class="Identifier">w</span><span class="Operator">.</span><span class="Identifier">navigate</span><span class="Punctuation">(</span><span class="StringLit">&quot;data:text/html;base64,PGgxPkhlbGxvPC9oMT4=&quot;</span><span class="Punctuation">)</span></pre>
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L167"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L170"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L167" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L170" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
 <div id="newWebview,bool,pointer">
-<dt><pre><span class="Keyword">proc</span> <a href="#newWebview%2Cbool%2Cpointer"><span class="Identifier">newWebview</span></a><span class="Other">(</span><span class="Identifier">debug</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Keyword">not</span> <span class="DecNumber">false</span><span class="Other">;</span> <span class="Identifier">window</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">)</span><span class="Other">:</span> <a href="webview.html#Webview"><span class="Identifier">Webview</span></a> {.
+<dt><pre><span class="Keyword">proc</span> <a href="#newWebview%2Cbool%2Cpointer"><span class="Identifier">newWebview</span></a><span class="Other">(</span><span class="Identifier">debug</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">isDebug</span><span class="Other">;</span> <span class="Identifier">window</span><span class="Other">:</span> <span class="Identifier">pointer</span> <span class="Other">=</span> <span class="Keyword">nil</span><span class="Other">)</span><span class="Other">:</span> <a href="webview.html#Webview"><span class="Identifier">Webview</span></a> {.
     <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 Alias of <tt class="docutils literal"><span class="pre"><span class="Identifier">create</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L289"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L293"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L289" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L293" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -626,9 +626,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Runs the main loop until it's terminated. After this function exits - you must destroy the webview.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L131"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L133"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L131" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L133" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -643,35 +643,36 @@ Set webview HTML directly.
 
 <span class="Identifier">w</span><span class="Operator">.</span><span class="Identifier">setHtml</span><span class="Punctuation">(</span><span class="StringLit">&quot;&lt;h1&gt;Hello&lt;/h1&gt;&quot;</span><span class="Punctuation">)</span></pre>
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L178"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L181"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L178" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L181" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
 <div id="setSize,Webview,cint,cint,cint">
-<dt><pre><span class="Keyword">proc</span> <a href="#setSize%2CWebview%2Ccint%2Ccint%2Ccint"><span class="Identifier">setSize</span></a><span class="Other">(</span><span class="Identifier">w</span><span class="Other">:</span> <a href="webview.html#Webview"><span class="Identifier">Webview</span></a><span class="Other">;</span> <span class="Identifier">width</span><span class="Other">:</span> <span class="Identifier">cint</span><span class="Other">;</span> <span class="Identifier">height</span><span class="Other">:</span> <span class="Identifier">cint</span><span class="Other">;</span> <span class="Identifier">hints</span><span class="Other">:</span> <span class="Identifier">cint</span><span class="Other">)</span> {.<span class="Identifier">cdecl</span><span class="Other">,</span>
+<dt><pre><span class="Keyword">proc</span> <a href="#setSize%2CWebview%2Ccint%2Ccint%2Ccint"><span class="Identifier">setSize</span></a><span class="Other">(</span><span class="Identifier">w</span><span class="Other">:</span> <a href="webview.html#Webview"><span class="Identifier">Webview</span></a><span class="Other">;</span> <span class="Identifier">width</span><span class="Other">:</span> <span class="Identifier">cint</span><span class="Other">;</span> <span class="Identifier">height</span><span class="Other">:</span> <span class="Identifier">cint</span><span class="Other">;</span>
+             <span class="Identifier">hints</span><span class="Other">:</span> <span class="Identifier">cint</span> <span class="Other">=</span> <span class="Identifier">WEBVIEW_HINT_NONE</span><span class="Other">)</span> {.<span class="Identifier">cdecl</span><span class="Other">,</span>
     <span class="Identifier">importc</span><span class="Other">:</span> <span class="StringLit">&quot;webview_set_size&quot;</span><span class="Other">,</span> <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 Updates native window size. See WEBVIEW_HINT constants.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L163"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L165"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L163" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L165" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
 <div id="setSize,Webview,int,int,WebviewHint">
-<dt><pre><span class="Keyword">proc</span> <a href="#setSize%2CWebview%2Cint%2Cint%2CWebviewHint"><span class="Identifier">setSize</span></a><span class="Other">(</span><span class="Identifier">w</span><span class="Other">:</span> <a href="webview.html#Webview"><span class="Identifier">Webview</span></a><span class="Other">;</span> <span class="Identifier">width</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">height</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">hints</span><span class="Other">:</span> <a href="webview.html#WebviewHint"><span class="Identifier">WebviewHint</span></a><span class="Other">)</span> {.
+<dt><pre><span class="Keyword">proc</span> <a href="#setSize%2CWebview%2Cint%2Cint%2CWebviewHint"><span class="Identifier">setSize</span></a><span class="Other">(</span><span class="Identifier">w</span><span class="Other">:</span> <a href="webview.html#Webview"><span class="Identifier">Webview</span></a><span class="Other">;</span> <span class="Identifier">width</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">height</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">hints</span><span class="Other">:</span> <a href="webview.html#WebviewHint"><span class="Identifier">WebviewHint</span></a> <span class="Other">=</span> <span class="Identifier">HintNone</span><span class="Other">)</span> {.
     <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L266"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L269"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L266" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L269" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -682,9 +683,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Updates the title of the native window. Must be called from the UI thread.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L151"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L153"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L151" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L153" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -695,9 +696,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Setter alias for <tt class="docutils literal"><span class="pre"><span class="Identifier">setSize</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>. <tt class="docutils literal"><span class="pre"><span class="Identifier">hints</span></span></tt> default to <tt class="docutils literal"><span class="pre"><span class="Identifier">WEBVIEW_HINT_NONE</span></span></tt>.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L279"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L283"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L279" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L283" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -708,9 +709,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Stops the main loop. It is safe to call this function from another other background thread.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L135"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L137"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L135" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L137" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -720,9 +721,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Setter alias for <tt class="docutils literal"><span class="pre"><span class="Identifier">setTitle</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L284"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L288"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L284" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L288" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -733,9 +734,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Removes a callback that was previously set by <tt class="docutils literal"><span class="pre"><span class="Identifier">bindCallback</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L206"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L209"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L206" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L209" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -747,9 +748,9 @@ class="link-seesrc" target="_blank">Source</a>
 <p>Same as <tt class="docutils literal"><span class="pre"><span class="Identifier">webviewVersion</span><span class="Punctuation">(</span><span class="Punctuation">)</span><span class="Punctuation">[</span><span class="Punctuation">]</span></span></tt>.</p>
 
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L238"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L241"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L238" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L241" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -762,9 +763,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Binds a callback so that it will appear under the given name as a global JavaScript function. Internally it uses <tt class="docutils literal"><span class="pre"><span class="Identifier">init</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>. Callback receives a request string and a user-provided argument pointer. Request string is a JSON array of all the arguments passed to the JavaScript function.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L197"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L200"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L197" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L200" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -778,9 +779,9 @@ class="link-seesrc" target="_blank">Source</a>
 <p>If status is not zero - result is an error JSON object.</p>
 
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L210"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L213"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L210" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L213" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -791,9 +792,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get the library's version information.
 &nbsp;&nbsp;<a
-href="https://github.com/neroist/webview/tree/main/webview.nim#L219"
+href="https://github.com/neroist/webview/tree/main/webview.nim#L222"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L219" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/neroist/webview/edit/main/webview.nim#L222" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -807,7 +808,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-03-09 19:25:49 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-03-10 00:23:53 UTC</small>
       </div>
     </div>
   </div>
