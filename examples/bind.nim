@@ -8,6 +8,7 @@ const html = """
 <script>
   const [incrementElement, countElement] =
     document.querySelectorAll("#increment, #count");
+
   document.addEventListener("DOMContentLoaded", () => {
     incrementElement.addEventListener("click", () => {
       window.increment().then(result => {
