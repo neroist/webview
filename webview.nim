@@ -48,7 +48,7 @@ else:
     {.passC: "/I " & webview2Include.}
     {.passC: "/I " & webview.}
 
-  elif defined(windows) or defined(gcc):
+  elif defined(windows):
     when defined(cpp):
       {.passC: "-std=c++17".}
 
