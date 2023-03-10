@@ -12,7 +12,7 @@ const
   isDebug = not (defined(release) or defined(danger))
 
 when defined(useWebviewDll):
-  const webviewDll {.strdefine.} = when defined(windows):
+  const webviewDll* = when defined(windows):
       "webview.dll"
     elif defined(macos):
       "webview.dynlib"
@@ -22,7 +22,7 @@ when defined(useWebviewDll):
   {.pragma: webview, dynlib: webviewDll.}
 
 elif defined(useWebviewStaticLib) or defined(useWebviewStaticLibrary):
-  const webviewStaticLibrary {.strdefine.} = when defined(windows):
+  const webviewStaticLibrary*  = when defined(windows):
       "webview.lib"
     else:
       "webview.a"
@@ -51,17 +51,11 @@ else:
   elif defined(windows) or defined(gcc):
     when defined(cpp):
       {.passC: "-std=c++17".}
-    else:
-      when not defined(clang):
-        {.passC: "-std=c99".}
 
     {.passC: "-I" & webview2Include.}
     {.passC: "-I" & webview.}
 
-    when defined(clang) and defined(cpp):
-      {.passL: "-mwindows".}
-    else:
-      {.passC: "-mwindows".}
+    {.passL: "-mwindows".}
 
     {.passL: "-ladvapi32".}
     {.passL: "-lole32".}
@@ -75,12 +69,8 @@ else:
 
     when defined(cpp):
       {.passC: "-std=c++11".}
-    else:
-      when not defined(clang):
-        {.passC: "-std=c99".}
 
     when defined(macos):
-      {.passL: "-framework Cocoa".}
       {.passL: "-framework WebKit".}
 
     when defined(linux) or defined(openbsd) or defined(freebsd) or defined(netbsd):
