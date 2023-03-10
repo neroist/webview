@@ -74,11 +74,8 @@ else:
       {.passL: "-framework WebKit".}
 
     when defined(linux) or defined(openbsd) or defined(freebsd) or defined(netbsd):
-      when defined(cpp):
-        {.passC: staticExec"pkg-config --cflags --libs gtk+-3.0 webkit2gtk-4.0".}
-      else:
-        {.passC: staticExec"pkg-config --cflags gtk+-3.0 webkit2gtk-4.0".}
-        {.passL: staticExec"pkg-config --libs gtk+-3.0 webkit2gtk-4.0".}
+      {.passL: staticExec"pkg-config --libs gtk+-3.0 webkit2gtk-4.0".}
+      {.passC: staticExec"pkg-config --cflags gtk+-3.0 webkit2gtk-4.0".}
 
   {.compile: libs / "webview" / "webview.cc".}
   {.pragma: webview.}
