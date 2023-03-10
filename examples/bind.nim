@@ -30,10 +30,10 @@ proc main =
   w.title = "Bind Example"
   w.size = (480, 320)
 
-  w.bindCallback("increment") do (seq: string; req: JsonNode) -> JsonNode:
+  w.bindCallback("increment") do (seq: string; req: JsonNode) -> string:
     inc count
 
-    return %* {"count": count}
+    return $ %* {"count": count}
 
   w.html = html
 

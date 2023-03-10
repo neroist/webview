@@ -236,7 +236,7 @@ type
 
   CallBackContext = ref object
     w: Webview
-    fn: proc (seq: string; req: JsonNode): JsonNode
+    fn: proc (seq: string; req: JsonNode): string 
 
 proc version*(): WebviewVersionInfo = webviewVersion()[]
   ## Dereferenced of `webviewVersion()`.
@@ -244,7 +244,7 @@ proc version*(): WebviewVersionInfo = webviewVersion()[]
   ## Same as `webviewVersion()[]`.
 
 proc bindCallback*(w: Webview; name: string;
-                 fn: proc (seq: string; req: JsonNode): JsonNode) =
+                 fn: proc (seq: string; req: JsonNode): string) =
   ## Essentially a high-level version of `webviewBind`
 
   proc closure(seq: cstring; req: cstring; arg: pointer) {.cdecl.} =
@@ -255,7 +255,7 @@ proc bindCallback*(w: Webview; name: string;
       ctx.fn($seq, parseJson($req))
     except:
       err = -1
-      %* getCurrentExceptionMsg()
+      $ %* getCurrentExceptionMsg()
 
     webviewReturn(ctx.w, seq, err, cstring $res)
 
