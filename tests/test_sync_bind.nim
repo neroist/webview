@@ -77,7 +77,6 @@ test "test synchronous binding and unbinding. (high-level)":
     if req == %* [1]:
       check number == 1
       w.unbind("increment")
-      echo "hi"
 
       return "(() => {try{window.increment()}catch{}window.test(2)})()"
 
