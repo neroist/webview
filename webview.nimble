@@ -19,20 +19,33 @@ after install:
   when defined(windows):
     installSDKTask()
 
-when defined(nimdistros):
-  import distros
+when defined(nimdistros) and not (defined(macosx) or defined(windows)):
+  import std/distros
 
-  if detectOs(Debian):
+  let debianBased = detectOs(Ubuntu) or detectOs(Elementary) or detectOs(Debian) or 
+      detectOs(KNOPPIX) or detectOs(SteamOS) or detectOs(Zorin) or detectOs(Parrot) or
+      detectOs(Kali)
+
+  let fedoraBased = detectOs(Fedora) or detectOs(Qubes) or detectOs(ClearOS) or
+      detectOs(RedHat) or detectOs(Scientific) or detectOs(Oracle) or detectOs(Korora)
+
+  let bsd = defined(bsd) or detectOs(OpenBSD) or detectOs(FreeBSD)
+
+  if debianBased:
     foreignDep "libgtk-3-dev"
     foreignDep "libwebkit2gtk-4.0-dev"
-  elif detectOs(Fedora):
+  elif fedoraBased:
     foreignDep "gtk3-devel"
     foreignDep "webkit2gtk4.0-devel"
-  elif detectOs(BSD):
+  elif bsd:
     foreignDep "webkit2-gtk3"
-  else:
-    discard
 
+  echo ""
+
+  echo "This package requires some external dependencies."
+  echo "To install them you may be able to run:\n"
+
+  echoForeignDeps()
 
 # Dependencies
 
