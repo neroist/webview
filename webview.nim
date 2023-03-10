@@ -7,7 +7,7 @@ const
   libs = currentSourcePath().parentDir() / "libs"
 
   webview2Include {.used.} = libs / "webview2"/"build"/"native"/"include"
-  webview = libs / "webview"
+  #webview = libs / "webview"
 
   isDebug = not (defined(release) or defined(danger))
 
@@ -45,7 +45,6 @@ else:
     {.link: "version.lib".}
 
     {.passC: "/I " & webview2Include.}
-    {.passC: "/I " & webview.}
 
   elif defined(windows):
     {.passC: "-DWEBVIEW_EDGE".}
@@ -54,7 +53,6 @@ else:
       {.passC: "-std=c++17".}
 
     {.passC: "-I" & webview2Include.}
-    {.passC: "-I" & webview.}
 
     {.passL: "-mwindows".}
 
@@ -66,8 +64,6 @@ else:
     {.passL: "-lversion".}
     {.passL: "-static".}
   else:
-    {.passC: "-I" & webview.}
-
     when defined(cpp):
       {.passC: "-std=c++11".}
 
