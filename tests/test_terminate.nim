@@ -2,7 +2,6 @@ import std/unittest
 
 import "webview.nim"
 
-
 test "start app loop and terminate it.":
   let w = create()
 
