@@ -71,7 +71,7 @@ test "test synchronous binding and unbinding. (high-level)":
       check number == 0
       w.bindCallback("increment", increment)
 
-      return  "(() => {try{window.increment()}catch{}window.test(2)})()"
+      return "(() => {try{window.increment()}catch{}window.test(2)})()"
 
     # Unbind and make sure that we cannot increment even if we try.
     if req == %* [1]:
@@ -79,14 +79,14 @@ test "test synchronous binding and unbinding. (high-level)":
       w.unbind("increment")
       echo "hi"
 
-      return  "(() => {try{window.increment()}catch{}window.test(2)})()"
+      return "(() => {try{window.increment()}catch{}window.test(2)})()"
 
     # Number should not have changed but we can bind again and change the number.
     if req == %* [2]:
       check number == 1
       w.bindCallback("increment", increment)
 
-      return  "(() => {try{window.increment()}catch{}window.test(3)})()"
+      return "(() => {try{window.increment()}catch{}window.test(3)})()"
 
     # finish test
     if req == %* [3]:
@@ -108,6 +108,6 @@ test "test synchronous binding and unbinding. (high-level)":
   # Attempting to bind multiple times only binds once
   w.bindCallback("test", test)
   
-  w.setHtml(cstring html)
+  w.html = html
   w.run()
   w.destroy()
