@@ -11,6 +11,8 @@ installDirs   = @["libs", "webview"]
 # Tasks
 
 task installSDK, "Install WebView2 SDK for Windows":
+  echo "\nInstalling Webview2 SDK..."
+  
   discard gorgeEx "nim c -r webview/instsdk.nim"
 
 after install:
