@@ -11,7 +11,7 @@ const
   isDebug = not (defined(release) or defined(danger))
 
 when defined(useWebviewDll):
-  const webviewDll* = when defined(windows):
+  const webviewDll* {.strdefine.} = when defined(windows):
       "webview.dll"
     elif defined(macos):
       "libwebview.dynlib"
@@ -21,7 +21,7 @@ when defined(useWebviewDll):
   {.pragma: webview, dynlib: webviewDll.}
 
 elif defined(useWebviewStaticLib) or defined(useWebviewStaticLibrary):
-  const webviewStaticLibrary* = when defined(windows):
+  const webviewStaticLibrary* {.strdefine.} = when defined(windows):
       "webview.lib"
     else:
       "libwebview.a"
