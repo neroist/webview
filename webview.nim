@@ -34,6 +34,7 @@ else:
     {.passC: "-DWEBVIEW_EDGE".}
 
     {.passC: "/std:c++17".}
+    {.passC: "/wd4005".} # disable warning C4005: 'WIN32_LEAN_AND_MEAN': macro redefinition
     {.passC: "/EHsc".}
 
     {.link: "advapi32.lib".}
