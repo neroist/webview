@@ -13,11 +13,14 @@ updated 5 years ago and are severely out of date.
 
 Similar to [`uing`](https://github.com/neroist/uing), you can also choose to
 whether or not compile with a DLL, static library, or to statically compile Webview
-into your executable.
+sources into your executable.
 
-To compile with a DLL, pass `-d:useWebviewDll` to the Nim
-compiler. To compile with a static library, compile with
-`-d:useWebviewStaticLib` or `-d:useWebviewStaticLibrary`.
+To compile with a DLL, pass `-d:useWebviewDll` to the Nim compiler. You can also
+choose the name/path of the DLL with `-d:webviewDll:<dll-name>`.
+
+To compile with a static library, compile with `-d:useWebviewStaticLib` or
+`-d:useWebviewStaticLibrary`. Similarly, you can also
+choose the name/path of the static library with `-d:webviewStaticLibrary:<lib-name>`.
 
 ## Documentation
 
