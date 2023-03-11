@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.2.2"
+version       = "0.2.3"
 author        = "Jasmine"
 description   = "Webview bindings for Nim"
 license       = "MIT"
