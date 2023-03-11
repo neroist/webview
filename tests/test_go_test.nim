@@ -47,5 +47,5 @@ proc example() =
   w.run()
   w.destroy()
 
-test "Golang-like webview test":
+test "Golang webview test":
   example()
