@@ -192,15 +192,15 @@ proc webviewBind*(w: Webview; name: cstring;
                  fn: proc (seq: cstring; req: cstring; arg: pointer) {.cdecl.};
                  arg: pointer = nil) {.cdecl, importc: "webview_bind", webview.}
   ## Binds a callback so that it will appear under the given name as a
-  ## global JavaScript function. Internally it uses `init() <#init,Webview,cstring>`_. 
-  ## Callback receives a request string and a user-provided argument pointer. 
-  ## Request string is a JSON array of all the arguments passed to the 
+  ## global JavaScript function. Internally it uses `init() <#init,Webview,cstring>`_.
+  ## Callback receives a request string and a user-provided argument pointer.
+  ## Request string is a JSON array of all the arguments passed to the
   ## JavaScript function.
 
 proc unbind*(w: Webview; name: cstring) {.cdecl,
                                 importc: "webview_unbind", webview.}
-  ## Removes a callback that was previously set by 
-  ## `bindCallback() <#bindCallback,Webview,string,proc(string,JsonNode)>`_ or 
+  ## Removes a callback that was previously set by
+  ## `bindCallback() <#bindCallback,Webview,string,proc(string,JsonNode)>`_ or
   ## `webviewBind() <#webviewBind,Webview,cstring,proc(cstring,cstring,pointer),pointer>`_ .
 
 proc webviewReturn*(w: Webview; seq: cstring; status: cint;
@@ -229,7 +229,7 @@ type
 
   CallBackContext = ref object
     w: Webview
-    fn: proc (seq: string; req: JsonNode): string 
+    fn: proc (seq: string; req: JsonNode): string
 
 proc version*(): WebviewVersionInfo = webviewVersion()[]
   ## Dereferenced version of `webviewVersion() <#webviewVersion>`_.
@@ -238,8 +238,8 @@ proc version*(): WebviewVersionInfo = webviewVersion()[]
 
 proc bindCallback*(w: Webview; name: string;
                  fn: proc (seq: string; req: JsonNode): string) =
-  ## Essentially a high-level version of 
-  ## `webviewBind <#webviewBind,Webview,cstring,proc(cstring,cstring,pointer),pointer>`_ 
+  ## Essentially a high-level version of
+  ## `webviewBind <#webviewBind,Webview,cstring,proc(cstring,cstring,pointer),pointer>`_
 
   proc closure(seq: cstring; req: cstring; arg: pointer) {.cdecl.} =
     var err: cint
