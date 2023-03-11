@@ -11,7 +11,7 @@ updated 5 years ago and are severely out of date.
 
 ## Binding Features
 
-Similiar to [`uing`](https://github.com/neroist/uing), you can also choose to
+Similar to [`uing`](https://github.com/neroist/uing), you can also choose to
 whether or not compile with a DLL, static library, or to statically compile Webview
 into your executable.
 
