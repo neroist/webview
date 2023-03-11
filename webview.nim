@@ -288,3 +288,5 @@ proc newWebview*(debug: bool = isDebug; window: pointer = nil): Webview =
   ## Alias of `create()`
 
   create(cint debug, window)
+
+export JsonNode
