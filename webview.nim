@@ -177,7 +177,7 @@ proc setHtml*(w: Webview; html: cstring) {.cdecl,
 proc init*(w: Webview; js: cstring) {.cdecl, importc: "webview_init", webview.}
   ## Injects JavaScript code at the initialization of the new page. Every time
   ## the webview will open a the new page - this initialization code will be
-  ## executed. It is guaranteed that code is executed before window.onload.
+  ## executed. It is guaranteed that code is executed before `window.onload`.
 
 proc eval*(w: Webview; js: cstring) {.cdecl, importc: "webview_eval", webview.}
   ## Evaluates arbitrary JavaScript code. Evaluation happens asynchronously, also
@@ -188,14 +188,16 @@ proc webviewBind*(w: Webview; name: cstring;
                  fn: proc (seq: cstring; req: cstring; arg: pointer) {.cdecl.};
                  arg: pointer = nil) {.cdecl, importc: "webview_bind", webview.}
   ## Binds a callback so that it will appear under the given name as a
-  ## global JavaScript function. Internally it uses `init()`. Callback
-  ## receives a request string and a user-provided argument pointer. Request
-  ## string is a JSON array of all the arguments passed to the JavaScript
-  ## function.
+  ## global JavaScript function. Internally it uses `init() <#init,Webview,cstring>`_. 
+  ## Callback receives a request string and a user-provided argument pointer. 
+  ## Request string is a JSON array of all the arguments passed to the 
+  ## JavaScript function.
 
 proc unbind*(w: Webview; name: cstring) {.cdecl,
                                 importc: "webview_unbind", webview.}
-  ## Removes a callback that was previously set by `bindCallback()`.
+  ## Removes a callback that was previously set by 
+  ## `bindCallback() <#bindCallback,Webview,string,proc(string,JsonNode)>`_ or 
+  ## `webviewBind <#webviewBind,Webview,cstring,proc(cstring,cstring,pointer),pointer>`_ .
 
 proc webviewReturn*(w: Webview; seq: cstring; status: cint;
     result: cstring) {.cdecl, importc: "webview_return", webview.}
@@ -226,13 +228,14 @@ type
     fn: proc (seq: string; req: JsonNode): string 
 
 proc version*(): WebviewVersionInfo = webviewVersion()[]
-  ## Dereferenced of `webviewVersion()`.
+  ## Dereferenced version of `webviewVersion() <#webviewVersion>`_.
   ##
   ## Same as `webviewVersion()[]`.
 
 proc bindCallback*(w: Webview; name: string;
                  fn: proc (seq: string; req: JsonNode): string) =
-  ## Essentially a high-level version of `webviewBind`
+  ## Essentially a high-level version of 
+  ## `webviewBind <#webviewBind,Webview,cstring,proc(cstring,cstring,pointer),pointer>`_ 
 
   proc closure(seq: cstring; req: cstring; arg: pointer) {.cdecl.} =
     var err: cint
