@@ -29,7 +29,7 @@ when defined(nimdistros) and not (defined(macosx) or defined(windows)):
   let fedoraBased = detectOs(Fedora) or detectOs(Qubes) or detectOs(ClearOS) or
       detectOs(RedHat) or detectOs(Scientific) or detectOs(Oracle) or detectOs(Korora)
 
-  let bsd = defined(bsd) or detectOs(OpenBSD) or detectOs(FreeBSD)
+  let bsd = defined(bsd)
 
   if debianBased:
     foreignDep "libgtk-3-dev"
