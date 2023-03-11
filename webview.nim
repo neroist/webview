@@ -103,7 +103,7 @@ type
 
   Webview* = pointer
 
-proc create*(debug: cint | bool = isDebug;
+proc create*(debug: cint = cint isDebug;
     window: pointer = nil): Webview {.cdecl, importc: "webview_create", webview.}
   ## Creates a new webview instance. If debug is non-zero - developer tools will
   ## be enabled (if the platform supports them). Window parameter can be a
