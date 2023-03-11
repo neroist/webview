@@ -1,2 +1,2 @@
-100 ICON "icons\\application.ico"
-32512 ICON "icons\\window.ico"
+100 ICON "icons\\application.ico" // Set executable file icon
+32512 ICON "icons\\window.ico"    // Set window icon
