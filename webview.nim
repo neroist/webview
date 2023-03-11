@@ -48,8 +48,8 @@ else:
   elif defined(windows):
     {.passC: "-DWEBVIEW_EDGE".}
 
-    {.passC: "-std=c++17".}
-    when defined(c): {.passC: "-std=c99".}
+    when defined(cpp):
+      {.passC: "-std=c++17".}
 
     {.passC: "-I" & webview2Include.}
 
