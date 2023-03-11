@@ -3,7 +3,7 @@
 import std/unittest
 import std/json
 
-import ../webview
+import webview
 
 proc example() = 
   let w = newWebview(true)

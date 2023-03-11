@@ -1,7 +1,7 @@
 import std/unittest
 import std/json
 
-import ../webview
+import webview
 
 test "test synchronous binding and unbinding. (low-level)":
   var number: int
