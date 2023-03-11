@@ -108,5 +108,6 @@ test "test synchronous binding and unbinding. (high-level)":
   w.bindCallback("test", test)
   
   w.html = html
+  
   w.run()
   w.destroy()
