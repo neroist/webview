@@ -201,7 +201,7 @@ proc unbind*(w: Webview; name: cstring) {.cdecl,
                                 importc: "webview_unbind", webview.}
   ## Removes a callback that was previously set by 
   ## `bindCallback() <#bindCallback,Webview,string,proc(string,JsonNode)>`_ or 
-  ## `webviewBind <#webviewBind,Webview,cstring,proc(cstring,cstring,pointer),pointer>`_ .
+  ## `webviewBind() <#webviewBind,Webview,cstring,proc(cstring,cstring,pointer),pointer>`_ .
 
 proc webviewReturn*(w: Webview; seq: cstring; status: cint;
     result: cstring) {.cdecl, importc: "webview_return", webview.}
