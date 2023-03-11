@@ -70,7 +70,7 @@ else:
     when defined(cpp):
       {.passC: "-std=c++11".}
 
-    when defined(macos) or defined(macosx):
+    when defined(macosx) or defined(macos):
       {.passC: "-DWEBVIEW_COCOA".}
 
       {.passL: "-framework WebKit".}
