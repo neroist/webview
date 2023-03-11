@@ -7,7 +7,6 @@ const
   libs = currentSourcePath().parentDir() / "libs"
 
   webview2Include {.used.} = libs / "webview2"/"build"/"native"/"include"
-  #webview = libs / "webview"
 
   isDebug = not (defined(release) or defined(danger))
 
