@@ -69,7 +69,7 @@ test "test synchronous binding and unbinding. (high-level)":
     # Bind and increment number.
     if req == %* [0]:
       check number == 0
-      w.bindCallback("increment", increment)
+      w.bind("increment", increment)
 
       return "(() => {try{window.increment()}catch{}window.test(2)})()"
 
@@ -83,7 +83,7 @@ test "test synchronous binding and unbinding. (high-level)":
     # Number should not have changed but we can bind again and change the number.
     if req == %* [2]:
       check number == 1
-      w.bindCallback("increment", increment)
+      w.bind("increment", increment)
 
       return "(() => {try{window.increment()}catch{}window.test(3)})()"
 
@@ -102,10 +102,10 @@ test "test synchronous binding and unbinding. (high-level)":
 
   # Attempting to remove non-existing binding is OK
   w.unbind("test")
-  w.bindCallback("test", test)
+  w.bind("test", test)
 
   # Attempting to bind multiple times only binds once
-  w.bindCallback("test", test)
+  w.bind("test", test)
   
   w.html = html
   

@@ -31,7 +31,7 @@ proc main =
   w.title = "Bind Example"
   w.size = (480, 320)
 
-  w.bindCallback("increment") do (seq: string; req: JsonNode) -> string:
+  w.bind("increment") do (seq: string; req: JsonNode) -> string:
     inc count
 
     return $ %* {"count": count}

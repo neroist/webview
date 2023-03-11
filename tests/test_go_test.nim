@@ -10,14 +10,14 @@ proc example() =
 
   w.setTitle("Hello")
 
-  w.bindCallback("noop") do (seq: string, req: JsonNode) -> string:
+  w.bind("noop") do (seq: string, req: JsonNode) -> string:
     echo "hello"
     return "\"hello\"" # need quotes so JS thinks its a string, not an identifier
 
-  w.bindCallback("add") do (seq: string, req: JsonNode) -> string:
+  w.bind("add") do (seq: string, req: JsonNode) -> string:
     return $(req[0].getInt() + req[1].getInt())
 
-  w.bindCallback("quit") do (seq: string, req: JsonNode) -> string:
+  w.bind("quit") do (seq: string, req: JsonNode) -> string:
     w.terminate()
 
   w.setHtml():
