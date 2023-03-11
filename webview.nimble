@@ -19,7 +19,7 @@ after install:
   when defined(windows):
     installSDKTask()
 
-when defined(nimdistros) and not (defined(macosx) or defined(windows)):
+when defined(nimdistros) and not (defined(macos) or defined(windows)):
   import std/distros
 
   let debianBased = detectOs(Ubuntu) or detectOs(Elementary) or detectOs(Debian) or 
