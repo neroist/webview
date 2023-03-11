@@ -48,12 +48,15 @@ else:
   elif defined(windows):
     {.passC: "-DWEBVIEW_EDGE".}
 
-    when defined(cpp):
-      {.passC: "-std=c++17".}
+    {.passC: "-std=c++17".}
+    when defined(c): {.passC: "-std=c99".}
 
     {.passC: "-I" & webview2Include.}
 
     {.passL: "-mwindows".}
+
+    when not defined(clang): # gives warning on clang
+      {.passL: "-lstdc++".}    
 
     {.passL: "-ladvapi32".}
     {.passL: "-lole32".}
@@ -61,6 +64,7 @@ else:
     {.passL: "-lshlwapi".}
     {.passL: "-luser32".}
     {.passL: "-lversion".}
+
     {.passL: "-static".}
   else:
     when defined(cpp):
