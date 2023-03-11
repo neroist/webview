@@ -260,6 +260,13 @@ proc bindCallback*(w: Webview; name: string;
 
   GC_unref arg
 
+proc `bind`*(w: Webview; name: string;
+                 fn: proc (seq: string; req: JsonNode): string) =
+  ## Alias of 
+  ## `bindCallback() <#bindCallback,Webview,string,proc(string,JsonNode)>`_
+  
+  w.bindCallback(name, fn)
+
 proc setSize*(w: Webview; width: int; height: int;
     hints: WebviewHint = HintNone) =
   w.setSize(cint width, cint height, cint ord(hints))
