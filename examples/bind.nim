@@ -20,7 +20,7 @@ const html = """
 """
 
 proc main =
-  let w = create()
+  let w = newWebview()
 
   var count: int
 
