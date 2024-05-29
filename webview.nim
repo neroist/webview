@@ -5,13 +5,13 @@ import std/os
 
 const
   libs = currentSourcePath().parentDir() / "libs"
-
+  # webview = libs / "webview"
   webview2Include {.used.} = libs / "webview2"/"build"/"native"/"include"
-
   isDebug = not (defined(release) or defined(danger))
 
 when defined(useWebviewDll):
-  const webviewDll* {.strdefine.} = when defined(windows):
+  const webviewDll* {.strdefine.} = 
+    when defined(windows):
       "webview.dll"
     elif defined(macos):
       "libwebview.dynlib"
@@ -21,7 +21,8 @@ when defined(useWebviewDll):
   {.pragma: webview, dynlib: webviewDll.}
 
 elif defined(useWebviewStaticLib) or defined(useWebviewStaticLibrary):
-  const webviewStaticLibrary* {.strdefine.} = when defined(windows):
+  const webviewStaticLibrary* {.strdefine.} = 
+    when defined(windows): #? vcc
       "webview.lib"
     else:
       "libwebview.a"
@@ -30,6 +31,8 @@ elif defined(useWebviewStaticLib) or defined(useWebviewStaticLibrary):
   {.pragma: webview.}
 
 else:
+  {.passC: "-DWEBVIEW_STATIC".}
+
   when defined(vcc):
     {.passC: "-DWEBVIEW_EDGE".}
 
