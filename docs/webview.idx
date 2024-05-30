@@ -1,0 +1,69 @@
+nimTitle	webview	webview.html	module webview		0
+nim	WEBVIEW_VERSION_MAJOR	webview.html#WEBVIEW_VERSION_MAJOR	const WEBVIEW_VERSION_MAJOR		89
+nim	WEBVIEW_VERSION_MINOR	webview.html#WEBVIEW_VERSION_MINOR	const WEBVIEW_VERSION_MINOR		90
+nim	WEBVIEW_VERSION_PATCH	webview.html#WEBVIEW_VERSION_PATCH	const WEBVIEW_VERSION_PATCH		91
+nim	WEBVIEW_VERSION_PRE_RELEASE	webview.html#WEBVIEW_VERSION_PRE_RELEASE	const WEBVIEW_VERSION_PRE_RELEASE		92
+nim	WEBVIEW_VERSION_BUILD_METADATA	webview.html#WEBVIEW_VERSION_BUILD_METADATA	const WEBVIEW_VERSION_BUILD_METADATA		93
+nim	WEBVIEW_VERSION_NUMBER	webview.html#WEBVIEW_VERSION_NUMBER	const WEBVIEW_VERSION_NUMBER		94
+nim	WebviewVersion	webview.html#WebviewVersion	object WebviewVersion		100
+nim	WebviewVersionInfo	webview.html#WebviewVersionInfo	object WebviewVersionInfo		105
+nim	Webview	webview.html#Webview	type Webview		121
+nim	WebviewNativeHandleKindUiWindow	webview.html#WebviewNativeHandleKindUiWindow	WebviewNativeHandleKind.WebviewNativeHandleKindUiWindow		124
+nim	WebviewNativeHandleKindUiWidget	webview.html#WebviewNativeHandleKindUiWidget	WebviewNativeHandleKind.WebviewNativeHandleKindUiWidget		124
+nim	WebviewNativeHandleKindBrowserController	webview.html#WebviewNativeHandleKindBrowserController	WebviewNativeHandleKind.WebviewNativeHandleKindBrowserController		124
+nim	WebviewNativeHandleKind	webview.html#WebviewNativeHandleKind	enum WebviewNativeHandleKind		124
+nim	WebviewHintNone	webview.html#WebviewHintNone	WebviewHint.WebviewHintNone		140
+nim	WebviewHintMin	webview.html#WebviewHintMin	WebviewHint.WebviewHintMin		140
+nim	WebviewHintMax	webview.html#WebviewHintMax	WebviewHint.WebviewHintMax		140
+nim	WebviewHintFixed	webview.html#WebviewHintFixed	WebviewHint.WebviewHintFixed		140
+nim	WebviewHint	webview.html#WebviewHint	enum WebviewHint		140
+nim	WebviewErrorMissingDependency	webview.html#WebviewErrorMissingDependency	WebviewError.WebviewErrorMissingDependency		155
+nim	WebviewErrorCanceled	webview.html#WebviewErrorCanceled	WebviewError.WebviewErrorCanceled		155
+nim	WebviewErrorInvalidState	webview.html#WebviewErrorInvalidState	WebviewError.WebviewErrorInvalidState		155
+nim	WebviewErrorInvalidArgument	webview.html#WebviewErrorInvalidArgument	WebviewError.WebviewErrorInvalidArgument		155
+nim	WebviewErrorUnspecified	webview.html#WebviewErrorUnspecified	WebviewError.WebviewErrorUnspecified		155
+nim	WebviewErrorOk	webview.html#WebviewErrorOk	WebviewError.WebviewErrorOk		155
+nim	WebviewErrorDuplicate	webview.html#WebviewErrorDuplicate	WebviewError.WebviewErrorDuplicate		155
+nim	WebviewErrorNotFound	webview.html#WebviewErrorNotFound	WebviewError.WebviewErrorNotFound		155
+nim	WebviewError	webview.html#WebviewError	enum WebviewError		155
+nim	wnhkUiWindow	webview.html#wnhkUiWindow	const wnhkUiWindow		194
+nim	wnhkUiWidget	webview.html#wnhkUiWidget	const wnhkUiWidget		195
+nim	wnhkController	webview.html#wnhkController	const wnhkController		196
+nim	whNone	webview.html#whNone	const whNone		198
+nim	whMin	webview.html#whMin	const whMin		199
+nim	whMax	webview.html#whMax	const whMax		200
+nim	whFixed	webview.html#whFixed	const whFixed		201
+nim	weMissingDependency	webview.html#weMissingDependency	const weMissingDependency		203
+nim	weCanceled	webview.html#weCanceled	const weCanceled		204
+nim	weInvalidState	webview.html#weInvalidState	const weInvalidState		205
+nim	weInvalidArgument	webview.html#weInvalidArgument	const weInvalidArgument		206
+nim	weUnspecified	webview.html#weUnspecified	const weUnspecified		207
+nim	weOk	webview.html#weOk	const weOk		208
+nim	weDuplicate	webview.html#weDuplicate	const weDuplicate		209
+nim	weNotFound	webview.html#weNotFound	const weNotFound		210
+nim	create	webview.html#create,cint,pointer	proc create(debug: cint = cint isDebug; window: pointer = nil): Webview		212
+nim	destroy	webview.html#destroy,Webview	proc destroy(w: Webview): WebviewError		239
+nim	run	webview.html#run,Webview	proc run(w: Webview): WebviewError		244
+nim	terminate	webview.html#terminate,Webview	proc terminate(w: Webview): WebviewError		249
+nim	dispatch	webview.html#dispatch,Webview,proc(Webview,pointer),pointer	proc dispatch(w: Webview; fn: proc (w: Webview; arg: pointer) {.cdecl.};\n         arg: pointer = nil): WebviewError		255
+nim	getWindow	webview.html#getWindow,Webview	proc getWindow(w: Webview): pointer		265
+nim	getNativeHandle	webview.html#getNativeHandle,Webview,WebviewNativeHandleKind	proc getNativeHandle(w: Webview; kind: WebviewNativeHandleKind): pointer		274
+nim	setTitle	webview.html#setTitle,Webview,cstring	proc setTitle(w: Webview; title: cstring): WebviewError		282
+nim	setSize	webview.html#setSize,Webview,cint,cint,WebviewHint	proc setSize(w: Webview; width: cint; height: cint;\n        hints: WebviewHint = WEBVIEW_HINT_NONE): WebviewError		289
+nim	navigate	webview.html#navigate,Webview,cstring	proc navigate(w: Webview; url: cstring): WebviewError		299
+nim	setHtml	webview.html#setHtml,Webview,cstring	proc setHtml(w: Webview; html: cstring): WebviewError		313
+nim	init	webview.html#init,Webview,cstring	proc init(w: Webview; js: cstring): WebviewError		325
+nim	eval	webview.html#eval,Webview,cstring	proc eval(w: Webview; js: cstring): WebviewError		332
+nim	webviewBind	webview.html#webviewBind,Webview,cstring,proc(cstring,cstring,pointer),pointer	proc webviewBind(w: Webview; name: cstring;\n            fn: proc (id: cstring; req: cstring; arg: pointer) {.cdecl.};\n            arg: pointer = nil): WebviewError		340
+nim	unbind	webview.html#unbind,Webview,cstring	proc unbind(w: Webview; name: cstring): WebviewError		357
+nim	webviewReturn	webview.html#webviewReturn,Webview,cstring,cint,cstring	proc webviewReturn(w: Webview; seq: cstring; status: cint; result: cstring): WebviewError		366
+nim	webviewVersion	webview.html#webviewVersion_2	proc webviewVersion(): ptr WebviewVersionInfo		379
+nim	version	webview.html#version	proc version(): WebviewVersionInfo		390
+nim	bindCallback	webview.html#bindCallback,Webview,string,proc(string,JsonNode)	proc bindCallback(w: Webview; name: string;\n             fn: proc (id: string; req: JsonNode): string): WebviewError		395
+nim	`bind`	webview.html#bind,Webview,string,proc(string,JsonNode)	proc `bind`(w: Webview; name: string; fn: proc (id: string; req: JsonNode): string): WebviewError		418
+nim	setSize	webview.html#setSize,Webview,int,int,WebviewHint	proc setSize(w: Webview; width: int; height: int;\n        hints: WebviewHint = WebviewHintNone): WebviewError		425
+nim	html=	webview.html#html=,Webview,string	proc html=(w: Webview; html: string): WebviewError		431
+nim	size=	webview.html#size=,Webview,tuple[int,int]	proc size=(w: Webview; size: tuple[width: int, height: int]): WebviewError		441
+nim	title=	webview.html#title=,Webview,string	proc title=(w: Webview; title: string): WebviewError		446
+nim	newWebview	webview.html#newWebview,bool,pointer	proc newWebview(debug: bool = isDebug; window: pointer = nil): Webview		451
+nimgrp	setsize	webview.html#setSize-procs-all	proc		289
