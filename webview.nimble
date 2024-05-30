@@ -1,7 +1,7 @@
 # Package
 
-version       = "0.3.0"
-author        = "Jasmine"
+version       = "0.4.0"
+author        = "neroist"
 description   = "Webview bindings for Nim"
 license       = "MIT"
 installFiles  = @["webview.nim"]
