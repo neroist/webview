@@ -3,8 +3,8 @@ import std/strutils
 
 import webview
 
-test "version()":
-  let ver = version()
+test "webviewVersion()":
+  let ver = webviewVersion()
 
   check ver.version.major == WEBVIEW_VERSION_MAJOR
   check ver.version.minor == WEBVIEW_VERSION_MINOR

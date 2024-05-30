@@ -18,7 +18,7 @@ proc example() =
     return $(req[0].getInt() + req[1].getInt())
 
   w.bind("quit") do (seq: string, req: JsonNode) -> string:
-    w.terminate()
+    discard w.terminate()
 
   w.setHtml():
     cstring """
