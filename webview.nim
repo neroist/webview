@@ -392,28 +392,29 @@ proc version*(): WebviewVersionInfo {.inline, deprecated: "Useless. use `webview
   ##
   ## Same as `webviewVersion()[]`.
 
+proc closure(id: cstring; req: cstring; arg: pointer) {.cdecl.} =
+  var err: cint
+  let ctx = cast[CallBackContext](arg)
+
+  let res = 
+    try:
+      ctx.fn($id, parseJson($req))
+    except CatchableError:
+      err = -1
+      $ %* getCurrentExceptionMsg()
+
+  webviewReturn(ctx.w, id, err, cstring res)
+
 proc bindCallback*(w: Webview; name: string;
                  fn: proc (id: string; req: JsonNode): string): WebviewError {.discardable.} =
   ## Essentially a high-level version of
   ## `webviewBind <#webviewBind,Webview,cstring,proc(cstring,cstring,pointer),pointer>`_
-
-  proc closure(id: cstring; req: cstring; arg: pointer) {.cdecl.} =
-    var err: cint
-    let ctx = cast[CallBackContext](arg)
-
-    let res = try:
-      ctx.fn($id, parseJson($req))
-    except:
-      err = -1
-      $ %* getCurrentExceptionMsg()
-
-    webviewReturn(ctx.w, id, err, cstring $res)
-
-  var arg = CallBackContext(w: w, fn: fn)
   
-  GC_ref arg
+  #      using global seems to work...
+  # TODO is there a better solution?
+  let arg {.global.} = CallBackContext(w: w, fn: fn)
+
   result = w.webviewBind(name, closure, cast[pointer](arg))
-  GC_unref arg
 
 proc `bind`*(w: Webview; name: string;
                  fn: proc (id: string; req: JsonNode): string): WebviewError {.inline, discardable.} =
