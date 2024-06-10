@@ -266,7 +266,7 @@ proc getWindow*(w: Webview): pointer {.cdecl, importc: "webview_get_window",
                                       webview.}
   ## Returns the native handle of the window associated with the webview instance.
   ## The handle can be a `GtkWindow` pointer (GTK), `NSWindow` pointer (Cocoa)
-  ## or @c `HWND` (Win32).
+  ## or `HWND` (Win32).
   ## 
   ## :w: The webview instance.
   ## :return: The handle of the native window.
@@ -277,7 +277,7 @@ proc getNativeHandle*(w: Webview, kind: WebviewNativeHandleKind): pointer {.cdec
   ## 
   ## :w: The webview instance.
   ## :kind: The kind of handle to retrieve.
-  ## :return: The native handle or @c NULL.
+  ## :return: The native handle or `nil`.
 
 proc setTitle*(w: Webview; title: cstring): WebviewError {.cdecl,
     importc: "webview_set_title", webview.}
