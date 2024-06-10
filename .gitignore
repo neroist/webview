@@ -1,6 +1,3 @@
-# Webview2 is installed automatically, no need to include it in the git repository
-libs/webview2
-
 # execuable files/dlls
 *.exe
 *.dll

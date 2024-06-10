@@ -6,7 +6,7 @@ import std/os
 const
   libs = currentSourcePath().parentDir() / "libs"
   # webview = libs / "webview"
-  webview2Include {.used.} = libs / "webview2"/"build"/"native"/"include"
+  webview2Include {.used.} = libs / "webview2"
   isDebug = not (defined(release) or defined(danger))
 
 when defined(useWebviewDll):
