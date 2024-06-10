@@ -1,6 +1,9 @@
 import webview
 
-{.link: "build/resources.o".}
+when defined(usedRC):
+  {.link: "build/resources.res".}
+else:
+  {.link: "build/resources.o".}
 
 proc main = 
   let w = newWebview()
