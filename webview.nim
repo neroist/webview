@@ -86,14 +86,14 @@ else:
   {.pragma: webview, discardable.}
 
 const
-  WEBVIEW_VERSION_MAJOR*          = 0  ## The current library major version.
-  WEBVIEW_VERSION_MINOR*          = 11 ## The current library minor version.
-  WEBVIEW_VERSION_PATCH*          = 0  ## The current library patch version.
+  WEBVIEW_VERSION_MAJOR*             = 0  ## The current library major version.
+  WEBVIEW_VERSION_MINOR*             = 11 ## The current library minor version.
+  WEBVIEW_VERSION_PATCH*             = 0  ## The current library patch version.
   WEBVIEW_VERSION_PRE_RELEASE*    = "" ## SemVer 2.0.0 pre-release labels prefixed with "-".
   WEBVIEW_VERSION_BUILD_METADATA* = "" ## SemVer 2.0.0 build metadata prefixed with "+".
   WEBVIEW_VERSION_NUMBER*         = $WEBVIEW_VERSION_MAJOR &
-                              '.' & $WEBVIEW_VERSION_MINOR &
-                              '.' & $WEBVIEW_VERSION_PATCH ## \
+                                      '.' & $WEBVIEW_VERSION_MINOR &
+                                      '.' & $WEBVIEW_VERSION_PATCH ## \
     ## SemVer 2.0.0 version number in MAJOR.MINOR.PATCH format.
 
 type
@@ -191,23 +191,23 @@ type
       ## Signifies that something does not exist.
 
 const
-  wnhkUiWindow* = WebviewNativeHandleKindUiWindow
-  wnhkUiWidget* = WebviewNativeHandleKindUiWidget
+  wnhkUiWindow*   = WebviewNativeHandleKindUiWindow
+  wnhkUiWidget*   = WebviewNativeHandleKindUiWidget
   wnhkController* = WebviewNativeHandleKindBrowserController
   
-  whNone* = WebviewHintNone
-  whMin* = WebviewHintMin
-  whMax* = WebviewHintMax
+  whNone*  = WebviewHintNone
+  whMin*   = WebviewHintMin
+  whMax*   = WebviewHintMax
   whFixed* = WebviewHintFixed
   
   weMissingDependency* = WebviewErrorMissingDependency
-  weCanceled* = WebviewErrorCanceled
-  weInvalidState* = WebviewErrorInvalidState
-  weInvalidArgument* = WebviewErrorInvalidArgument
-  weUnspecified* = WebviewErrorUnspecified
-  weOk* = WebviewErrorOk
-  weDuplicate* = WebviewErrorDuplicate
-  weNotFound* = WebviewErrorNotFound
+  weCanceled*          = WebviewErrorCanceled
+  weInvalidState*      = WebviewErrorInvalidState
+  weInvalidArgument*   = WebviewErrorInvalidArgument
+  weUnspecified*       = WebviewErrorUnspecified
+  weOk*                = WebviewErrorOk
+  weDuplicate*         = WebviewErrorDuplicate
+  weNotFound*          = WebviewErrorNotFound
 
 proc create*(debug: cint = cint isDebug;
     window: pointer = nil): Webview {.cdecl, importc: "webview_create", webview.}
