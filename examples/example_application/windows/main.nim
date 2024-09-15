@@ -1,6 +1,6 @@
 import webview
 
-when defined(usedRC):
+when defined(useRC):
   {.link: "build/resources.res".}
 else:
   {.link: "build/resources.o".}
